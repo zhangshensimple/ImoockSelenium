@@ -6,25 +6,28 @@ class RegisterPage(object):
 		self.fd = FindElement(driver)
 	#获取邮箱元素
 	def get_email_element(self):
-		return self.fd.get_element('user_email')
+		return self.fd.get_element('user_email') #配置文件中的定位方法 索引 user_email
 	#获取昵称元素
-	def get_user_nick_element(self):
-		return self.fd.get_element('user_nick')
+	def get_user_name_element(self):
+		return self.fd.get_element('user_name')
 	#获取密码元素
-	def get_passwd1_element(self):
-		return self.fd.get_element('passwd1')
+	def get_password1_element(self):
+		return self.fd.get_element('password1')
 	#获取确认密码元素
-	def get_passwd2_element(self):
-		return self.fd.get_element('passwd2')
+	def get_password2_element(self):
+		return self.fd.get_element('password2')
 	#获取协议元素
-	def get_check_element(self):
-		return self.fd.get_element('check')
+	def get_checkbox_element(self):
+		return self.fd.get_element('checkbox')
 	#获取同意按钮元素
 	def get_agreebutton_element(self):
 		return self.fd.get_element('agreebutton')
 	#获取注册按钮元素
 	def get_register_element(self):
 		return self.fd.get_element('register')
-	#获取错误信息元素
-	def get_error_info_element(self):
-		return self.fd.get_element('error_info')
+	#获取邮箱错误信息元素
+	def get_email_error_info_element(self):
+		return self.fd.get_element('email_error_info')
+	#获取密码输入不一致错误信息元素
+	def get_password_error_info_element(self):
+		return self.fd.get_element('password_error_info')

@@ -13,10 +13,10 @@ class RegisterFunction(object):
 	def get_driver(self,url,i):
 		if i == 1:
 			driver = webdriver.Chrome()
-		elif i == 2:
-			driver = webdriver.Firefox()
 		else:
-			driver = webdriver.edge()
+			driver = webdriver.Firefox()
+		# else:
+		# 	driver = webdriver.Edge()
 
 		driver.get(url)
 		driver.maximize_window()
@@ -55,7 +55,7 @@ class RegisterFunction(object):
 		self.driver.close()
 if __name__ == '__main__':
 	for i in range(3):
-		register_function = RegisterFunction('https://sso.ifanr.com/register/')
+		register_function = RegisterFunction('https://sso.ifanr.com/register/',i)
 		register_function.main()
 
 
