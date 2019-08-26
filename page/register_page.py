@@ -31,3 +31,6 @@ class RegisterPage(object):
 	#获取密码输入不一致错误信息元素
 	def get_password_error_info_element(self):
 		return self.fd.get_element('password_error_info')
+	#获取重复注册邮箱错误信息
+	def get_repaet_error_info_element(self):
+		return self.fd.get_element('repeat_error_info')

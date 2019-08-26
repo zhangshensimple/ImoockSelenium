@@ -19,13 +19,17 @@ class RegisterHandle(object):
 	def send_password2(self,password2):
 		self.register_p.get_password2_element().send_keys(password2)
 	#获取邮箱错误信息 的显示文字
-	def get_error_info(self,info,user_info):
-		if info == 'email_error_info':
-			text = self.register_p.get_email_error_info_element().get_attribute('value')
-		else:
-			text = self.register_p.get_password_error_info_element().get_attribute('value')
+	def get_error_info(self,info,user_info):#添加容错处理
+		try:
+			if info == 'email_error_info':
+				text = self.register_p.get_email_error_info_element().get_attribute('value') # 没有value属性的可以用text方法
+			elif info == 'password_error_info':
+				text = self.register_p.get_password_error_info_element().get_attribute('value')
+			elif info == 'repeat_error_info':
+				text = self.register_p.get_repaet_error_info_element().get_attribute('value')
+		except:
+			text = None
 		return text
-
 
 	#点击确认框 checkbox
 	def click_check_box(self):

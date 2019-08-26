@@ -14,17 +14,13 @@ class RegisterBusiness(object):
 		self.register_h.click_register_button()
 
 
-	def register_success(self):
-		if self.register_h.get_register_text() == None:
-			return True
-		else:
-			return False
+
 
 	#执行操作  邮箱不对的情况
 	def register_email_error(self,user_email,user_name,password1,password2):
 		self.use_base(user_email,user_name,password1,password2)
 		if self.register_h.get_error_info('email_error_info','输入一个有效的 Email 地址。') == None:
-			print('邮箱校验不成功')
+			print('输入的是正确的邮箱格式')
 			return True
 		else:
 			return False
@@ -32,14 +28,21 @@ class RegisterBusiness(object):
 	def register_password_error(self,user_email,user_name,password1,password2):
 		self.use_base(user_email,user_name,password1,password2)
 		if self.register_h.get_error_info('password_error_info','两个密码字段不一致。') == None:
-			print('2次密码不一致，校验不成功')
-			return  True
+			print('2次输入密码一致')
+			return True
 		else:
 			return False
 	def register_repeat_error(self,user_email,user_name,password1,password2):
 		self.use_base(user_email,user_name,password1,password2)
 		if self.register_h.get_error_info('repeat_error_info','该邮箱已经被注册') == None:
-			print('该邮箱已经被注册')
+			print('输入的邮箱是未被注册的邮箱')
+			return True
+		else:
+			return False
+	def register_success(self):
+		# self.use_base(user_email,user_name,password1,password2)
+		if self.register_h.get_register_text() == None:
+			print('注册成功')
 			return True
 		else:
 			return False
