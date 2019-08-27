@@ -13,9 +13,6 @@ class RegisterBusiness(object):
 		self.register_h.click_check_box()
 		self.register_h.click_register_button()
 
-
-
-
 	#执行操作  邮箱不对的情况
 	def register_email_error(self,user_email,user_name,password1,password2):
 		self.use_base(user_email,user_name,password1,password2)

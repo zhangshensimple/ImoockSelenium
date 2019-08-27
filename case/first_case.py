@@ -26,22 +26,22 @@ class FirstCase(unittest.TestCase):
 
 	def tearDown(self): # 在这个过程中解决截图操作
 		time.sleep(2)
-		# for method_name,error in self._outcome.errors:
-		# 	if error:
-		case_name = self._testMethodName
-		file_name = r'D:\PycharmProjects\ImoockSelenium\Image' + case_name + '.png'
-		self.driver.save_screenshot(file_name)
+		for method_name,error in self._outcome.errors:
+			if error:
+				case_name = self._testMethodName
+				file_name = os.path.join(os.getcwd()+'/image/'+case_name+'.png')
+				self.driver.save_screenshot(file_name)
 		# print(self._outcome)
 		# file_name = r'D:\PycharmProjects\ImoockSelenium\Image' + 'case_name' + '.png'
 		# self.driver.save_screenshot(file_name)
-		self.driver.close()
+		# self.driver.close()
 
 	# def tearDownClass(cls):
 	# 	cls.driver.close()
 
 	def test_register_email_error(self):#一目了然的命名 测试登录时  邮箱错误
 		email_error = self.login.register_email_error('youxiangerror','34','111aaa','111aaa')
-		self.assertTrue(email_error,'注册成功，第一条case结果为失败,输入的邮箱为正确格式的邮箱')
+		self.assertIs(email_error,'注册成功，第一条case结果为失败,输入的邮箱为正确格式的邮箱')
 		# self.assertFalse(email_error,'第一条case结果为通过，输入邮箱格式为错误，邮箱校验通过。')
 		# if email_error == True:  #获取不到错误信息  就是邮箱格式为正确的
 		# 	print('注册成功，第一条case结果为失败,输入的邮箱为正确格式的邮箱')

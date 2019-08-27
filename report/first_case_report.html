@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>第一次测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2019-08-26 23:34:22</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:34.122278</p>
-<p class='attribute'><strong>Status:</strong> Pass 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2019-08-28 00:28:37</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:31.638005</p>
+<p class='attribute'><strong>Status:</strong> Pass 2 Failure 1</p>
 
 <p class='description'>first report</p>
 </div>
@@ -221,18 +221,45 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>FirstCase</td>
     <td>3</td>
-    <td>3</td>
-    <td>0</td>
+    <td>2</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c1',3)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_register_email_error</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_register_email_error</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "D:/PycharmProjects/ImoockSelenium/case/first_case.py", line 44, in test_register_email_error
+    self.assertIs(email_error,'注册成功，第一条case结果为失败,输入的邮箱为正确格式的邮箱')
+AssertionError: False is not '注册成功，第一条case结果为失败,输入的邮箱为正确格式的邮箱'
+Traceback (most recent call last):
+  File "D:/PycharmProjects/ImoockSelenium/case/first_case.py", line 44, in test_register_email_error
+    self.assertIs(email_error,'注册成功，第一条case结果为失败,输入的邮箱为正确格式的邮箱')
+AssertionError: False is not '注册成功，第一条case结果为失败,输入的邮箱为正确格式的邮箱'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt1.2' class='hiddenRow'>
@@ -248,8 +275,8 @@ function showOutput(id, name) {
 <tr id='total_row'>
     <td>Total</td>
     <td>3</td>
-    <td>3</td>
-    <td>0</td>
+    <td>2</td>
+    <td>1</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>
